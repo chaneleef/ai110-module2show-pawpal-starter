@@ -70,12 +70,20 @@ Tasks were sorted by priority and selected until the available time was filled.
 ```bash
 # Run the full test suite:
 pytest
+python -m pytest
 
 # Run with coverage:
 pytest --cov
 ```
 
+The tests verify the core functionality of PawPal+, including task completion, adding tasks to pets, sorting tasks by scheduled time, recurring task creation, and detecting scheduling conflicts. These tests help ensure the scheduler works correctly for both normal use cases and edge cases.
+
 Sample test output:
+collected 5 items
+
+tests\test_pawpal.py ..... [100%]
+
+==================== 5 passed in 0.08s ====================
 
 ```
 # Paste your pytest output here
