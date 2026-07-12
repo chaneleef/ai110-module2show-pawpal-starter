@@ -1,0 +1,53 @@
+classDiagram
+    %% PawPal+ — smart pet care management system
+    %% Core classes: Owner, Pet, Task, Scheduler
+
+    class Owner {
+        +str name
+        +str email
+        +int minutes_available
+        +str preferred_start_time
+        +List~Pet~ pets
+        +add_pet(pet) None
+        +remove_pet(pet) None
+        +list_pets() List~Pet~
+    }
+
+    class Pet {
+        +str name
+        +str species
+        +str breed
+        +float age
+        +List~Task~ tasks
+        +add_task(task) None
+        +remove_task(task) None
+        +tasks_due_today() List~Task~
+    }
+
+    class Task {
+        +str name
+        +str category
+        +int duration_min
+        +int priority
+        +str recurrence
+        +bool completed
+        +str scheduled_time
+        +mark_done() None
+        +is_recurring() bool
+    }
+
+    class Scheduler {
+        +List~Task~ tasks
+        +int minutes_available
+        +str start_time
+        +sort_by_priority() List~Task~
+        +filter_by_time() List~Task~
+        +resolve_conflicts() List~Task~
+        +generate_plan() List~Task~
+        +explain_plan() str
+    }
+
+    Owner "1" o-- "*" Pet : owns
+    Pet "1" *-- "*" Task : has
+    Scheduler ..> Task : schedules
+    Scheduler ..> Owner : reads constraints

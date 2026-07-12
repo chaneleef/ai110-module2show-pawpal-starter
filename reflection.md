@@ -2,10 +2,16 @@
 
 ## 1. System Design
 
+- add pet, add pet tasks, gather info like owners preferences and times
+
 **a. Initial design**
 
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
+
+Main objects:
+Pet-> all tasks associated with pet
+Human -> time constraints preferences daily plan actions
 
 **b. Design changes**
 
