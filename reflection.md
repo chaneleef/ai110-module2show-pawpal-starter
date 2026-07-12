@@ -12,11 +12,13 @@
 Main objects:
 Pet-> all tasks associated with pet
 Human -> time constraints preferences daily plan actions
+My initial UML design included four main classes: Owner, Pet, Task, and Scheduler. The Owner class manages the user's pets and available time, Pet stores information about each pet and its care tasks, Task represents individual care activities like feeding or walking, and Scheduler organizes tasks into a daily plan based on priority and time constraints. I assigned each class a single responsibility to keep the design organized and easy to maintain.
 
 **b. Design changes**
 
 - Did your design change during implementation?
 - If yes, describe at least one change and why you made it.
+  Yes, my design changed a little during implementation. Instead of having the Scheduler keep its own separate list of tasks, I made it work directly with the Owner and collect tasks from each pet. This avoids storing the same data twice and keeps everything connected, making the code simpler and easier to maintain.
 
 ---
 
