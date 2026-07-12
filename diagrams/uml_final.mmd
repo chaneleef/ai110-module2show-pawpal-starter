@@ -1,0 +1,67 @@
+classDiagram
+    %% PawPal+ — smart pet care management system
+    %% Final UML diagram matching pawpal_system.py
+
+    class Owner {
+        +str name
+        +str email
+        +int minutes_available
+        +str preferred_start_time
+        +List~Pet~ pets
+        +add_pet(pet) None
+        +remove_pet(pet) None
+        +list_pets() List~Pet~
+        +get_all_tasks() List~Task~
+    }
+
+
+    class Pet {
+        +str name
+        +str species
+        +str breed
+        +float age
+        +List~Task~ tasks
+        +add_task(task) None
+        +remove_task(task) None
+        +complete_task(task) None
+        +tasks_due_today() List~Task~
+        +get_tasks_by_category(category) List~Task~
+    }
+
+
+    class Task {
+        +str name
+        +str category
+        +int duration_min
+        +int priority
+        +str recurrence
+        +bool completed
+        +str scheduled_time
+        +date due_date
+        +mark_done() Task
+        +is_recurring() bool
+        +create_next_task() Task
+        +reset() None
+    }
+
+
+    class Scheduler {
+        +Owner owner
+        +collect_tasks() List~Task~
+        +filter_incomplete_tasks() List~Task~
+        +filter_by_pet(pet_name) List~Task~
+        +filter_by_status(completed) List~Task~
+        +sort_by_priority() List~Task~
+        +sort_by_time() List~Task~
+        +filter_by_time() List~Task~
+        +detect_schedule_conflicts() List~str~
+        +detect_conflicts(tasks) bool
+        +generate_plan() List~Task~
+        +explain_plan() str
+    }
+
+
+    Owner "1" o-- "*" Pet : owns
+    Pet "1" *-- "*" Task : manages
+    Scheduler --> Owner : reads constraints
+    Scheduler --> Task : schedules and organizes

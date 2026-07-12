@@ -2,6 +2,35 @@
 
 You are building **PawPal+**, a Streamlit app that helps a pet owner plan care tasks for their pet.
 
+## ✨ Features
+
+PawPal+ includes smart scheduling features that help pet owners organize and manage daily care tasks.
+
+- **Task Sorting**
+  - Uses `Scheduler.sort_by_time()` to organize tasks chronologically.
+  - Uses `Scheduler.sort_by_priority()` to prioritize important tasks first.
+
+- **Task Filtering**
+  - Uses `Scheduler.filter_by_status()` to view completed or incomplete tasks.
+  - Uses `Scheduler.filter_by_pet()` to display tasks for a specific pet.
+  - Uses `Scheduler.filter_incomplete_tasks()` to remove completed tasks from schedules.
+
+- **Smart Schedule Generation**
+  - Uses `Scheduler.generate_plan()` to create a schedule based on task priority and the owner's available time.
+  - Prevents tasks from exceeding the owner's time limit.
+
+- **Conflict Warnings**
+  - Uses `Scheduler.detect_schedule_conflicts()` to identify tasks scheduled at the same time.
+  - Displays warnings instead of causing the program to fail.
+
+- **Recurring Tasks**
+  - Supports daily and weekly recurring tasks.
+  - Uses `Task.mark_done()` and `Task.create_next_task()` to automatically create the next occurrence after completion.
+
+- **Pet and Task Management**
+  - Owners can manage multiple pets.
+  - Pets can store, add, remove, and complete their own tasks.
+
 ## Scenario
 
 A busy pet owner needs help staying consistent with pet care. They want an assistant that can:
@@ -79,15 +108,16 @@ pytest --cov
 The tests verify the core functionality of PawPal+, including task completion, adding tasks to pets, sorting tasks by scheduled time, recurring task creation, and detecting scheduling conflicts. These tests help ensure the scheduler works correctly for both normal use cases and edge cases.
 
 Sample test output:
+
+```
 collected 5 items
 
 tests\test_pawpal.py ..... [100%]
 
 ==================== 5 passed in 0.08s ====================
+```
 
-```
-# Paste your pytest output here
-```
+Confidence Level: 5 Stars
 
 ## 📐 Smarter Scheduling
 
@@ -106,12 +136,47 @@ The scheduler first collects tasks from all pets, removes completed tasks when n
 
 ## 📸 Demo Walkthrough
 
-Describe your app in numbered steps so a reader can follow along without watching a video:
+Follow these steps to use PawPal+:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. **Add a pet**
+   - The user enters pet information such as name, species, breed, and age.
+   - The pet is added to the owner's profile and displayed in the app.
+
+2. **Create pet care tasks**
+   - The user creates tasks by entering details like task name, category, duration, priority, recurrence, and scheduled time.
+   - Tasks are connected to the selected pet.
+
+3. **Generate a daily schedule**
+   - The user selects the "Generate Schedule" button.
+   - The Scheduler collects tasks, filters incomplete tasks, sorts them by priority, and creates a schedule that fits the owner's available time.
+
+4. **Review schedule results**
+   - The user can view organized tasks in the schedule.
+   - Tasks are displayed with important information including duration, priority, and scheduled time.
+
+5. **View smart scheduling features**
+   - PawPal+ detects scheduling conflicts when multiple tasks have the same scheduled time.
+   - Recurring tasks automatically create the next occurrence after completion.
+   - Users can filter tasks by pet or completion status.
+
+### Example Workflow
+
+A user opens PawPal+, adds their dog Buddy, creates a daily feeding task and a walk task, then generates a schedule. The Scheduler prioritizes important tasks, checks available time, and displays the recommended plan.
+
+### Sample CLI Output
+
+```text
+Today's Schedule
+--------------------
+Owner: Alex
+Available Time: 60 minutes
+
+08:00 - Feed Luna | Feeding | 10 min | Priority: 5
+09:00 - Walk Buddy | Exercise | 30 min | Priority: 4
+10:00 - Groom Buddy | Grooming | 20 min | Priority: 3
+
+The schedule prioritizes incomplete tasks, handles recurring tasks,
+and selects activities that fit within the owner's available time.
 
 **Screenshot or video** _(optional)_: <!-- Insert a screenshot or link to a demo video here -->
+```

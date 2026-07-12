@@ -41,42 +41,42 @@ My scheduler considers the owner's available time, task priority, and task compl
 
 ## 3. AI Collaboration
 
-**a. How you used AI**
+### a. How you used AI
 
-- How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
-- What kinds of prompts or questions were most helpful?
+I used AI as a coding assistant throughout the project for brainstorming my class design, debugging errors, improving my code structure, and writing tests. The most helpful prompts were asking AI to explain errors, suggest methods for my classes, and review whether my UML diagram matched my final implementation.
 
-**b. Judgment and verification**
+### b. Judgment and verification
 
-- Describe one moment where you did not accept an AI suggestion as-is.
-- How did you evaluate or verify what the AI suggested?
+I did not accept every AI suggestion automatically. For example, when adding conflict detection, AI suggested comparing every task with nested loops. I changed it to use a dictionary grouped by scheduled time because it was cleaner and more efficient.
+
+Using separate chat sessions for each phase helped me stay organized because I could focus on one goal at a time, such as UML design, implementation, testing, and documentation.
+
+The AI features that helped the most were debugging explanations, code suggestions, and reviewing my design decisions. I learned that I needed to act as the lead architect by making the final decisions, checking AI output, and making sure the code matched my project goals.
 
 ---
 
 ## 4. Testing and Verification
 
-**a. What you tested**
+### a. What you tested
 
-- What behaviors did you test?
-- Why were these tests important?
+I tested task completion, adding tasks to pets, sorting tasks by time, recurring task creation, and conflict detection. These tests were important because they verified that the scheduler worked correctly for both normal scenarios and edge cases.
 
-**b. Confidence**
+### b. Confidence
 
-- How confident are you that your scheduler works correctly?
-- What edge cases would you test next if you had more time?
+I am confident that my scheduler works for the features I implemented. If I had more time, I would test more complex cases like overlapping task durations, multiple pets with large numbers of tasks, and different scheduling constraints.
 
 ---
 
 ## 5. Reflection
 
-**a. What went well**
+### a. What went well
 
-- What part of this project are you most satisfied with?
+I am most satisfied with how my scheduler evolved from a simple task organizer into a system that can sort tasks, detect conflicts, and handle recurring care routines.
 
-**b. What you would improve**
+### b. What I would improve
 
-- If you had another iteration, what would you improve or redesign?
+I would improve the scheduling algorithm by adding smarter time management, such as detecting overlapping task durations instead of only checking exact time matches.
 
-**c. Key takeaway**
+### c. Key takeaway
 
-- What is one important thing you learned about designing systems or working with AI on this project?
+I learned that working with AI requires clear direction and decision-making. AI can help build faster, but I still need to understand the code, test solutions, and make design choices that fit the system.
