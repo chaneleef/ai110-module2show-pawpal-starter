@@ -29,10 +29,13 @@ My initial UML design included four main classes: Owner, Pet, Task, and Schedule
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
 - How did you decide which constraints mattered most?
 
+My scheduler considers the owner's available time, task priority, and task completion status. I prioritized time and priority because important pet care tasks should be completed first while still fitting into the owner's schedule.
+
 **b. Tradeoffs**
 
 - Describe one tradeoff your scheduler makes.
 - Why is that tradeoff reasonable for this scenario?
+  One tradeoff is that the scheduler only detects conflicts when tasks have the same exact scheduled time instead of checking overlapping task durations. This keeps the logic simple and easier to use, but a more advanced system would need to consider how long each task takes.
 
 ---
 

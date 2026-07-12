@@ -83,14 +83,18 @@ Sample test output:
 
 ## 📐 Smarter Scheduling
 
-> Fill in once you've implemented scheduling logic.
+PawPal+ includes scheduling features that help organize pet care tasks based on priority, time, and task status.
 
-| Feature           | Method(s) | Notes                             |
-| ----------------- | --------- | --------------------------------- |
-| Task sorting      |           | e.g., by priority, duration       |
-| Filtering         |           | e.g., skip tasks if time runs out |
-| Conflict handling |           | e.g., overlapping time slots      |
-| Recurring tasks   |           | e.g., daily vs. weekly            |
+| Feature           | Method(s)                                                                                          | Notes                                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Task sorting      | `Scheduler.sort_by_time()`, `Scheduler.sort_by_priority()`                                         | Sorts tasks by scheduled time and prioritizes higher priority tasks first.                             |
+| Filtering         | `Scheduler.filter_by_pet()`, `Scheduler.filter_by_status()`, `Scheduler.filter_incomplete_tasks()` | Allows users to view tasks for a specific pet or filter tasks based on completion status.              |
+| Conflict handling | `Scheduler.detect_schedule_conflicts()`                                                            | Checks for multiple tasks scheduled at the same time and returns warning messages instead of crashing. |
+| Recurring tasks   | `Task.mark_done()`, `Task.create_next_task()`, `Pet.complete_task()`                               | Automatically creates the next occurrence of daily or weekly tasks after completion.                   |
+
+### Scheduling Logic
+
+The scheduler first collects tasks from all pets, removes completed tasks when needed, and organizes tasks based on priority or scheduled time. It also checks for conflicts between tasks that have the same scheduled time. For recurring tasks, completing a daily or weekly task automatically creates a new task for the next occurrence using date calculations.
 
 ## 📸 Demo Walkthrough
 
